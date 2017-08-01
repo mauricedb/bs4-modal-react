@@ -1,39 +1,47 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
+
+const ClassName = {
+  MODAL: "modal",
+  SCROLLBAR_MEASURER: "modal-scrollbar-measure",
+  BACKDROP: "modal-backdrop",
+  OPEN: "modal-open",
+  FADE: "fade",
+  SHOW: "show"
+};
 
 export class Modal extends Component {
-  constructor(props) {
-    super(props);
-  }
+  static propTypes = {
+    visible: PropTypes.bool.isRequired,
+    backdrop: PropTypes.bool
+  };
 
-  componentWillMount() {}
-
-  componentDidMount() {}
+  static defaultProps = {
+    backdrop: true
+  };
 
   componentWillReceiveProps(nextProps) {}
 
-  shouldComponentUpdate(nextProps, nextState) {
-      return true;
-  }
-
-  componentWillUpdate(nextProps, nextState) {}
-
-  componentDidUpdate(prevProps, prevState) {}
-
-  componentWillUnmount() {}
-
   render() {
+    const { backdrop } = this.props;
 
     if (!this.props.visible) {
-        return null;
+      return null;
     }
-    const backdrop = <div className={"modal-backdrop show"} />;
+    let backdropEl = null;
+
+    if (backdrop) {
+      backdropEl = (
+        <div className={classnames(ClassName.BACKDROP, ClassName.SHOW)} />
+      );
+    }
 
     return (
       <div>
-        {backdrop}
+        {backdropEl}
         <div
-          className={"modal show"}
+          className={classnames(ClassName.MODAL, ClassName.SHOW)}
           style={{ display: "block" }}
           tabIndex="-1"
           role="dialog"
@@ -48,9 +56,3 @@ export class Modal extends Component {
     );
   }
 }
-
-Modal.propTypes = {
-  visible: PropTypes.bool.isRequired
-};
-
-// export default Modal;
