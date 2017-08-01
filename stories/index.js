@@ -12,19 +12,16 @@ storiesOf("Welcome", module).add("to Storybook", () =>
 
 import "bootstrap/dist/css/bootstrap.css";
 
-import { Modal } from "../src";
+import { Modal, ModalHeader } from "../src";
 import { ModalWrapper } from "./modal-wrapper";
 
 storiesOf("Modal", module)
   .add("with default props", () =>
     <ModalWrapper>
       <Modal>
-        <div className="modal-header">
+        <ModalHeader>
           <h5 className="modal-title">Modal title</h5>
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+        </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">

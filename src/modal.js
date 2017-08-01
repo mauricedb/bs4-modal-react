@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
- const TRANSITION_DURATION          = 300
+import { ModalHeader } from "./modal-header";
+
+const TRANSITION_DURATION = 300;
 
 const ClassName = {
   MODAL: "modal",
@@ -66,11 +68,11 @@ export class Modal extends Component {
     return display;
   }
 
-   onClickModal = e => {
+  onClickModal = e => {
     if (e.target.classList.contains(ClassName.MODAL)) {
       this.props.onHide();
     }
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     const display = this.getDisplay(nextProps);
@@ -102,7 +104,7 @@ export class Modal extends Component {
 
   render() {
     const display = this.getDisplay(this.props);
-    const { backdrop, transition } = this.props;
+    const { backdrop, transition, onHide, children } = this.props;
 
     if (display === Display.HIDDEN) {
       return null;
@@ -135,7 +137,12 @@ export class Modal extends Component {
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
-              {this.props.children}
+              {React.Children.map(children, child => {
+                if (child.type === ModalHeader) {
+                  return React.cloneElement(child, { onHide });
+                }
+                return child;
+              })}
             </div>
           </div>
         </div>
