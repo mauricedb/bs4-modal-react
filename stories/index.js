@@ -57,4 +57,25 @@ storiesOf("Modal", module)
         </div>
       </Modal>
     </ModalWrapper>
+  )
+  .add("No animation", () =>
+    <ModalWrapper>
+      <Modal transition={false}>
+        <div className="modal-header">
+          <h5 className="modal-title">Modal title</h5>
+          <button type="button" className="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div className="modal-body">Hello Modal</div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary">
+            Close
+          </button>
+          <button type="button" className="btn btn-primary">
+            Save changes
+          </button>
+        </div>
+      </Modal>
+    </ModalWrapper>
   );
