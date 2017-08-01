@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
+ const TRANSITION_DURATION          = 300
+
 const ClassName = {
   MODAL: "modal",
   SCROLLBAR_MEASURER: "modal-scrollbar-measure",
@@ -21,6 +23,7 @@ const Display = {
 export class Modal extends Component {
   static propTypes = {
     visible: PropTypes.bool.isRequired,
+    onHide: PropTypes.func.isRequired,
     backdrop: PropTypes.bool,
     transition: PropTypes.bool
   };
@@ -63,12 +66,24 @@ export class Modal extends Component {
     return display;
   }
 
+   onClickModal = e => {
+    if (e.target.classList.contains(ClassName.MODAL)) {
+      this.props.onHide();
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     const display = this.getDisplay(nextProps);
     const { transition } = nextProps;
 
     switch (display) {
       case Display.HIDDEN:
+        if (transition) {
+          const handle = setTimeout(() => {
+            this.setState({ handle: 0 });
+          }, TRANSITION_DURATION);
+          this.setState({ handle });
+        }
         break;
       case Display.SHOWING:
         break;
@@ -76,7 +91,7 @@ export class Modal extends Component {
         if (transition) {
           const handle = setTimeout(() => {
             this.setState({ handle: 0 });
-          }, 300);
+          }, TRANSITION_DURATION);
           this.setState({ handle });
         }
         break;
@@ -116,6 +131,7 @@ export class Modal extends Component {
           style={{ display: "block" }}
           tabIndex="-1"
           role="dialog"
+          onClick={this.onClickModal}
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
