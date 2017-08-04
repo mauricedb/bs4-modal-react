@@ -96,6 +96,7 @@ export class Modal extends Component {
 
     switch (display) {
       case Display.HIDDEN:
+        document.body.classList.remove("modal-open");
         if (transition) {
           const handle = setTimeout(() => {
             this.setState({ handle: 0 });
@@ -106,6 +107,7 @@ export class Modal extends Component {
       case Display.SHOWING:
         break;
       case Display.VISIBLE:
+        document.body.classList.add("modal-open");
         if (transition) {
           const handle = setTimeout(() => {
             this.setState({ handle: 0 });

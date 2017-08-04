@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export class ModalHeader extends Component {
   static propTypes = {
-    onHide: PropTypes.func.isRequired,
+    onHide: PropTypes.func,
     closeButton: PropTypes.bool
   };
 
