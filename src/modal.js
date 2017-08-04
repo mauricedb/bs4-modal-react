@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { ModalHeader } from "./modal-header";
 
 const TRANSITION_DURATION = 300;
-const ESCAPE_KEYCODE               = 27 // KeyboardEvent.which value for Escape (Esc) key
+const ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
 const ClassName = {
   MODAL: "modal",
@@ -29,18 +29,22 @@ export class Modal extends Component {
     onHide: PropTypes.func.isRequired,
     backdrop: PropTypes.bool,
     transition: PropTypes.bool,
-    keyboard: PropTypes.bool
+    keyboard: PropTypes.bool,
+    focus: PropTypes.bool
   };
 
   static defaultProps = {
     backdrop: true,
     transition: true,
-    keyboard: true
+    keyboard: true,
+    focus: true
   };
 
   state = {
     handle: 0
   };
+
+  modalRef = null;
 
   clearTimer() {
     if (this.handle) {
@@ -72,16 +76,19 @@ export class Modal extends Component {
   }
 
   onClickModal = e => {
-    if (e.target.classList.contains(ClassName.MODAL)) {
+    if (e.target === this.modalRef) {
+      // Clicking on the modal backdrop itself
       this.props.onHide();
     }
   };
 
   onKeyUpModal = e => {
-      if (this.props.keyboard && e.which === ESCAPE_KEYCODE) {
-        this.props.onHide();
-      }
-  }
+    const { keyboard } = this.props;
+
+    if (keyboard && e.which === ESCAPE_KEYCODE) {
+      this.props.onHide();
+    }
+  };
 
   componentWillReceiveProps(nextProps) {
     const display = this.getDisplay(nextProps);
@@ -108,6 +115,14 @@ export class Modal extends Component {
         break;
       case Display.HIDING:
         break;
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { focus, visible } = this.props;
+
+    if (focus && visible && !prevProps.visible) {
+      this.modalRef.focus();
     }
   }
 
@@ -144,6 +159,7 @@ export class Modal extends Component {
           role="dialog"
           onClick={this.onClickModal}
           onKeyUp={this.onKeyUpModal}
+          ref={e => (this.modalRef = e)}
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
