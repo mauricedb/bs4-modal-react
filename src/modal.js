@@ -5,6 +5,7 @@ import classnames from "classnames";
 import { ModalHeader } from "./modal-header";
 
 const TRANSITION_DURATION = 300;
+const ESCAPE_KEYCODE               = 27 // KeyboardEvent.which value for Escape (Esc) key
 
 const ClassName = {
   MODAL: "modal",
@@ -27,12 +28,14 @@ export class Modal extends Component {
     visible: PropTypes.bool.isRequired,
     onHide: PropTypes.func.isRequired,
     backdrop: PropTypes.bool,
-    transition: PropTypes.bool
+    transition: PropTypes.bool,
+    keyboard: PropTypes.bool
   };
 
   static defaultProps = {
     backdrop: true,
-    transition: true
+    transition: true,
+    keyboard: true
   };
 
   state = {
@@ -73,6 +76,12 @@ export class Modal extends Component {
       this.props.onHide();
     }
   };
+
+  onKeyUpModal = e => {
+      if (this.props.keyboard && e.which === ESCAPE_KEYCODE) {
+        this.props.onHide();
+      }
+  }
 
   componentWillReceiveProps(nextProps) {
     const display = this.getDisplay(nextProps);
@@ -134,6 +143,7 @@ export class Modal extends Component {
           tabIndex="-1"
           role="dialog"
           onClick={this.onClickModal}
+          onKeyUp={this.onKeyUpModal}
         >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
