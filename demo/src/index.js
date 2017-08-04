@@ -24,6 +24,11 @@ class Demo extends Component {
     this.setState({ visible: false });
   };
 
+  onSave = () => {
+    alert("Saving changes");
+    this.onHide();
+  };
+
   render() {
     const { visible } = this.state;
     return (
@@ -37,10 +42,18 @@ class Demo extends Component {
           </ModalHeader>
           <ModalBody>Woohoo, you're reading this text in a modal!</ModalBody>
           <ModalFooter>
-            <button type="button" className="btn btn-secondary">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={this.onHide}
+            >
               Close
             </button>
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.onSave}
+            >
               Save changes
             </button>
           </ModalFooter>
