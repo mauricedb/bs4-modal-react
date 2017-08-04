@@ -12,7 +12,7 @@ storiesOf("Welcome", module).add("to Storybook", () =>
 
 import "bootstrap/dist/css/bootstrap.css";
 
-import { Modal, ModalHeader, ModalTitle, ModalBody } from "../src";
+import { Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter } from "../src";
 import { ModalWrapper } from "./modal-wrapper";
 
 storiesOf("Modal", module)
@@ -23,14 +23,14 @@ storiesOf("Modal", module)
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <ModalBody>Hello Modal</ModalBody>
-        <div className="modal-footer">
+        <ModalFooter>
           <button type="button" className="btn btn-secondary">
             Close
           </button>
           <button type="button" className="btn btn-primary">
             Save changes
           </button>
-        </div>
+        </ModalFooter>
       </Modal>
     </ModalWrapper>
   )
@@ -41,14 +41,14 @@ storiesOf("Modal", module)
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <ModalBody>Hello Modal</ModalBody>
-        <div className="modal-footer">
+        <ModalFooter>
           <button type="button" className="btn btn-secondary">
             Close
           </button>
           <button type="button" className="btn btn-primary">
             Save changes
           </button>
-        </div>
+        </ModalFooter>
       </Modal>
     </ModalWrapper>
   )
@@ -59,14 +59,14 @@ storiesOf("Modal", module)
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <ModalBody>Hello Modal</ModalBody>
-        <div className="modal-footer">
+        <ModalFooter>
           <button type="button" className="btn btn-secondary">
             Close
           </button>
           <button type="button" className="btn btn-primary">
             Save changes
           </button>
-        </div>
+        </ModalFooter>
       </Modal>
     </ModalWrapper>
   )
@@ -77,14 +77,14 @@ storiesOf("Modal", module)
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <ModalBody>Hello Modal</ModalBody>
-        <div className="modal-footer">
+        <ModalFooter>
           <button type="button" className="btn btn-secondary">
             Close
           </button>
           <button type="button" className="btn btn-primary">
             Save changes
           </button>
-        </div>
+        </ModalFooter>
       </Modal>
     </ModalWrapper>
   )
@@ -95,14 +95,14 @@ storiesOf("Modal", module)
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <ModalBody>Hello Modal</ModalBody>
-        <div className="modal-footer">
+        <ModalFooter>
           <button type="button" className="btn btn-secondary">
             Close
           </button>
           <button type="button" className="btn btn-primary">
             Save changes
           </button>
-        </div>
+        </ModalFooter>
       </Modal>
     </ModalWrapper>
   );
