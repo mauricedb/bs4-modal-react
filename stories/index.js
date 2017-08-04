@@ -12,7 +12,7 @@ storiesOf("Welcome", module).add("to Storybook", () =>
 
 import "bootstrap/dist/css/bootstrap.css";
 
-import { Modal, ModalHeader, ModalTitle } from "../src";
+import { Modal, ModalHeader, ModalTitle, ModalBody } from "../src";
 import { ModalWrapper } from "./modal-wrapper";
 
 storiesOf("Modal", module)
@@ -22,7 +22,7 @@ storiesOf("Modal", module)
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
-        <div className="modal-body">Hello Modal</div>
+        <ModalBody>Hello Modal</ModalBody>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
             Close
@@ -40,7 +40,7 @@ storiesOf("Modal", module)
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
-        <div className="modal-body">Hello Modal</div>
+        <ModalBody>Hello Modal</ModalBody>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
             Close
@@ -58,7 +58,7 @@ storiesOf("Modal", module)
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
-        <div className="modal-body">Hello Modal</div>
+        <ModalBody>Hello Modal</ModalBody>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
             Close
@@ -76,7 +76,7 @@ storiesOf("Modal", module)
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
-        <div className="modal-body">Hello Modal</div>
+        <ModalBody>Hello Modal</ModalBody>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
             Close
@@ -94,7 +94,7 @@ storiesOf("Modal", module)
         <ModalHeader closeButton={false}>
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
-        <div className="modal-body">Hello Modal</div>
+        <ModalBody>Hello Modal</ModalBody>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
             Close
