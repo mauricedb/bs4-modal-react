@@ -37,12 +37,9 @@ storiesOf("Modal", module)
   .add("No backdrop", () =>
     <ModalWrapper>
       <Modal backdrop={false}>
-        <div className="modal-header">
+        <ModalHeader>
           <h5 className="modal-title">Modal title</h5>
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+        </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
@@ -58,12 +55,9 @@ storiesOf("Modal", module)
   .add("No animation", () =>
     <ModalWrapper>
       <Modal transition={false}>
-        <div className="modal-header">
+        <ModalHeader>
           <h5 className="modal-title">Modal title</h5>
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+        </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
@@ -79,12 +73,27 @@ storiesOf("Modal", module)
   .add("No close on escape", () =>
     <ModalWrapper>
       <Modal keyboard={false}>
-        <div className="modal-header">
+        <ModalHeader>
           <h5 className="modal-title">Modal title</h5>
-          <button type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+        </ModalHeader>
+        <div className="modal-body">Hello Modal</div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary">
+            Close
+          </button>
+          <button type="button" className="btn btn-primary">
+            Save changes
           </button>
         </div>
+      </Modal>
+    </ModalWrapper>
+  )
+  .add("No close button", () =>
+    <ModalWrapper>
+      <Modal keyboard={false}>
+        <ModalHeader closeButton={false}>
+          <h5 className="modal-title">Modal title</h5>
+        </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary">
