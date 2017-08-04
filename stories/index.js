@@ -12,7 +12,7 @@ storiesOf("Welcome", module).add("to Storybook", () =>
 
 import "bootstrap/dist/css/bootstrap.css";
 
-import { Modal, ModalHeader } from "../src";
+import { Modal, ModalHeader, ModalTitle } from "../src";
 import { ModalWrapper } from "./modal-wrapper";
 
 storiesOf("Modal", module)
@@ -20,7 +20,7 @@ storiesOf("Modal", module)
     <ModalWrapper>
       <Modal>
         <ModalHeader>
-          <h5 className="modal-title">Modal title</h5>
+          <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
@@ -38,7 +38,7 @@ storiesOf("Modal", module)
     <ModalWrapper>
       <Modal backdrop={false}>
         <ModalHeader>
-          <h5 className="modal-title">Modal title</h5>
+          <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
@@ -56,7 +56,7 @@ storiesOf("Modal", module)
     <ModalWrapper>
       <Modal transition={false}>
         <ModalHeader>
-          <h5 className="modal-title">Modal title</h5>
+          <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
@@ -74,7 +74,7 @@ storiesOf("Modal", module)
     <ModalWrapper>
       <Modal keyboard={false}>
         <ModalHeader>
-          <h5 className="modal-title">Modal title</h5>
+          <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
@@ -92,7 +92,7 @@ storiesOf("Modal", module)
     <ModalWrapper>
       <Modal keyboard={false}>
         <ModalHeader closeButton={false}>
-          <h5 className="modal-title">Modal title</h5>
+          <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <div className="modal-body">Hello Modal</div>
         <div className="modal-footer">
