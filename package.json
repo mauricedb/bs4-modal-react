@@ -1,6 +1,6 @@
 {
   "name": "bs4-modal-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "bs4-modal-react React component",
   "main": "lib/index.js",
   "module": "es/index.js",
