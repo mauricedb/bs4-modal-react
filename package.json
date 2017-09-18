@@ -1,7 +1,7 @@
 {
   "name": "bs4-modal-react",
   "version": "0.1.0",
-  "description": "bs4-modal-react React component",
+  "description": "Bootstrap 4 Modal React component",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -42,12 +42,19 @@
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1"
   },
-  "author": "",
+  "author": "Maurice de Beijer",
   "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": {                                         
+    "type": "git",                                        
+    "url": "git+https://github.com/mauricedb/bs4-modal-react.git"
+  },                                                        
   "keywords": [
-    "react-component"
+    "react",
+    "react-component",
+    "boostrap",
+    "boostrap4",
+    "nwb"
   ],
   "babel": {
     "presets": [
