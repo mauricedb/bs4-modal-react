@@ -1,5 +1,7 @@
 # bs4-modal-react
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mauricedb/bs4-modal-react.svg)](https://greenkeeper.io/)
+
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
